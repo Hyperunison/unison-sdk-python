@@ -9,21 +9,21 @@ You will need to create API key to use the Public API. You can do it in Web inte
 ## The example of using
 
 ```python
-    from src.UnisonSDKApi import UnisonSDKApi
-    from src.auto.auto_api_client.configuration import Configuration
+from src.UnisonSDKApi import UnisonSDKApi
+from src.auto.auto_api_client.configuration import Configuration
     
-    query = ''
-    api_key = ''
-    biobank_id = 1
-    api = UnisonSDKApi(
-        Configuration(
-            host='',
-        )
+query = ''
+api_key = ''
+biobank_id = 1
+api = UnisonSDKApi(
+    Configuration(
+        host='',
     )
-    response = api.execute_cohort_request(
-        api_key,
-        biobank_id,
-        query
-    )
-    print(response)
+)
+response = api.execute_cohort_request(
+    api_key,
+    biobank_id,
+    query
+)
+print(response)
 ```
