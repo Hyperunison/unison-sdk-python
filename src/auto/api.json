@@ -1,0 +1,97 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Unison public API",
+        "description": "API for Python and R libraries",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/public/cohort/biobank/{biobankId}/execute-query": {
+            "post": {
+                "tags": [
+                    "Public API"
+                ],
+                "operationId": "publicCohortExecuteQuery",
+                "parameters": [
+                    {
+                        "name": "apiKey",
+                        "in": "header",
+                        "description": "Authorization by Api key",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "biobankId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "\\d+"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "yaml"
+                                ],
+                                "properties": {
+                                    "yaml": {
+                                        "type": "string",
+                                        "default": null
+                                    },
+                                    "skipCache": {
+                                        "type": "string",
+                                        "default": null
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Get UCDM result",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseToUCDMResultWithSql"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "ResponseToUCDMResultWithSql": {
+                "properties": {
+                    "result": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "sql": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Public API",
+            "description": "Public API"
+        }
+    ]
+}
