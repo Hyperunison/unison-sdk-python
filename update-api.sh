@@ -3,7 +3,7 @@ set -e
 rm -rf src/auto/
 mkdir src/auto/
 
-curl -s http://localhost:8082/api/public/doc.json > src/auto/api.json
+curl -s https://dev-api.hyperunison.com/api/public/doc.json > src/auto/api.json
 
 docker run --rm -v "${PWD}/src/auto/:/local" \
   openapitools/openapi-generator-cli:v6.6.0 generate \

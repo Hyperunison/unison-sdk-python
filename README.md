@@ -1,8 +1,12 @@
 # Hyperunison Python SDK
 
-You can use this SDK to execute 
+You can use this SDK to execute UQL queries via Public API.
 
-## Example
+## API keys
+
+You will need to create API key to use the Public API. You can do it in Web interface of the site.
+
+## The example of using
 
 ```python
     from src.UnisonSDKApi import UnisonSDKApi
