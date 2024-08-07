@@ -1,0 +1,18 @@
+[project]
+name = "hyperunison_public_api_sdk"
+version = "1.0.1"
+authors = [
+  { name="Konstantin Naumov", email="konstantin@hyperunison.com" },
+]
+description = "Python SDK to use public API of Unison"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/Hyperunison/unison-sdk-python"
+Issues = "https://github.com/Hyperunison/unison-sdk-python/issues"

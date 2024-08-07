@@ -20,10 +20,10 @@ from urllib.parse import quote
 from urllib3.fields import RequestField
 
 
-from auto_api_client import rest
-from auto_api_client.configuration import Configuration
-from auto_api_client.exceptions import ApiTypeError, ApiValueError, ApiException
-from auto_api_client.model_utils import (
+from unison_public_api_sdk import rest
+from unison_public_api_sdk.configuration import Configuration
+from unison_public_api_sdk.exceptions import ApiTypeError, ApiValueError, ApiException
+from unison_public_api_sdk.model_utils import (
     ModelNormal,
     ModelSimple,
     ModelComposed,

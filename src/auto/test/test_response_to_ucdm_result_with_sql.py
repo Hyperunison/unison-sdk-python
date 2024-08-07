@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import auto_api_client
-from auto_api_client.model.response_to_ucdm_result_with_sql import ResponseToUCDMResultWithSql
+import unison_public_api_sdk
+from unison_public_api_sdk.model.response_to_ucdm_result_with_sql import ResponseToUCDMResultWithSql
 
 
 class TestResponseToUCDMResultWithSql(unittest.TestCase):

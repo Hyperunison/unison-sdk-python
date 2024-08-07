@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import auto_api_client
-from auto_api_client.model.public_cohort_execute_query_request import PublicCohortExecuteQueryRequest
+import unison_public_api_sdk
+from unison_public_api_sdk.model.public_cohort_execute_query_request import PublicCohortExecuteQueryRequest
 
 
 class TestPublicCohortExecuteQueryRequest(unittest.TestCase):

@@ -1,5 +1,5 @@
 from src.UnisonSDKApi import UnisonSDKApi
-from src.auto.auto_api_client.configuration import Configuration
+from src.auto.unison_public_api_sdk.configuration import Configuration
 
 try:
     import pydevd_pycharm

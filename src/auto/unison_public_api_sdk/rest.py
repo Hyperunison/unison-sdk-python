@@ -19,7 +19,7 @@ from urllib.request import proxy_bypass_environment
 import urllib3
 import ipaddress
 
-from auto_api_client.exceptions import ApiException, UnauthorizedException, ForbiddenException, NotFoundException, ServiceException, ApiValueError
+from unison_public_api_sdk.exceptions import ApiException, UnauthorizedException, ForbiddenException, NotFoundException, ServiceException, ApiValueError
 
 
 logger = logging.getLogger(__name__)

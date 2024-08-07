@@ -15,7 +15,7 @@ import sys
 import urllib3
 
 from http import client as http_client
-from auto_api_client.exceptions import ApiValueError
+from unison_public_api_sdk.exceptions import ApiValueError
 
 
 JSON_SCHEMA_VALIDATION_KEYWORDS = {
@@ -132,7 +132,7 @@ class Configuration(object):
         self.logger = {}
         """Logging Settings
         """
-        self.logger["package_logger"] = logging.getLogger("auto_api_client")
+        self.logger["package_logger"] = logging.getLogger("unison_public_api_sdk")
         self.logger["urllib3_logger"] = logging.getLogger("urllib3")
         self.logger_format = '%(asctime)s %(levelname)s %(message)s'
         """Log format

@@ -11,8 +11,8 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from auto_api_client.api_client import ApiClient, Endpoint as _Endpoint
-from auto_api_client.model_utils import (  # noqa: F401
+from unison_public_api_sdk.api_client import ApiClient, Endpoint as _Endpoint
+from unison_public_api_sdk.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
     date,
@@ -21,8 +21,8 @@ from auto_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from auto_api_client.model.public_cohort_execute_query_request import PublicCohortExecuteQueryRequest
-from auto_api_client.model.response_to_ucdm_result_with_sql import ResponseToUCDMResultWithSql
+from unison_public_api_sdk.model.public_cohort_execute_query_request import PublicCohortExecuteQueryRequest
+from unison_public_api_sdk.model.response_to_ucdm_result_with_sql import ResponseToUCDMResultWithSql
 
 
 class PublicAPIApi(object):

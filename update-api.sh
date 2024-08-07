@@ -10,6 +10,6 @@ docker run --rm -v "${PWD}/src/auto/:/local" \
   -i /local/api.json \
   -g python-prior \
   -o /local/ \
-  -p packageName=auto_api_client
+  -p packageName=unison_public_api_sdk
 
 #docker-compose exec -ti unison-agent pip install -r requirements.txt

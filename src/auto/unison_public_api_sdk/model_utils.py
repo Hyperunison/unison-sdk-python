@@ -20,7 +20,7 @@ import uuid
 
 from dateutil.parser import parse
 
-from auto_api_client.exceptions import (
+from unison_public_api_sdk.exceptions import (
     ApiKeyError,
     ApiAttributeError,
     ApiTypeError,

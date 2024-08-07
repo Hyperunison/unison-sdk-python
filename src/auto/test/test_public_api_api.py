@@ -10,8 +10,8 @@
 
 import unittest
 
-import auto_api_client
-from auto_api_client.api.public_api_api import PublicAPIApi  # noqa: E501
+import unison_public_api_sdk
+from unison_public_api_sdk.api.public_api_api import PublicAPIApi  # noqa: E501
 
 
 class TestPublicAPIApi(unittest.TestCase):

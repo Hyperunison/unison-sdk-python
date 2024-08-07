@@ -1,4 +1,4 @@
-# auto_api_client.PublicAPIApi
+# unison_public_api_sdk.PublicAPIApi
 
 All URIs are relative to *http://localhost*
 
@@ -17,20 +17,20 @@ Method | HTTP request | Description
 
 ```python
 import time
-import auto_api_client
-from auto_api_client.api import public_api_api
-from auto_api_client.model.public_cohort_execute_query_request import PublicCohortExecuteQueryRequest
-from auto_api_client.model.response_to_ucdm_result_with_sql import ResponseToUCDMResultWithSql
+import unison_public_api_sdk
+from unison_public_api_sdk.api import public_api_api
+from unison_public_api_sdk.model.response_to_ucdm_result_with_sql import ResponseToUCDMResultWithSql
+from unison_public_api_sdk.model.public_cohort_execute_query_request import PublicCohortExecuteQueryRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = auto_api_client.Configuration(
+configuration = unison_public_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with auto_api_client.ApiClient() as api_client:
+with unison_public_api_sdk.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = public_api_api.PublicAPIApi(api_client)
     api_key = "apiKey_example" # str | Authorization by Api key
@@ -44,7 +44,7 @@ with auto_api_client.ApiClient() as api_client:
     try:
         api_response = api_instance.public_cohort_execute_query(api_key, biobank_id)
         pprint(api_response)
-    except auto_api_client.ApiException as e:
+    except unison_public_api_sdk.ApiException as e:
         print("Exception when calling PublicAPIApi->public_cohort_execute_query: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -52,7 +52,7 @@ with auto_api_client.ApiClient() as api_client:
     try:
         api_response = api_instance.public_cohort_execute_query(api_key, biobank_id, public_cohort_execute_query_request=public_cohort_execute_query_request)
         pprint(api_response)
-    except auto_api_client.ApiException as e:
+    except unison_public_api_sdk.ApiException as e:
         print("Exception when calling PublicAPIApi->public_cohort_execute_query: %s\n" % e)
 ```
 

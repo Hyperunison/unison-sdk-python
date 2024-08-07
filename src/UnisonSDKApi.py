@@ -1,7 +1,7 @@
-from auto_api_client.api.public_api_api import PublicAPIApi
-from auto_api_client.model.public_cohort_execute_query_request import PublicCohortExecuteQueryRequest
+from unison_public_api_sdk.api.public_api_api import PublicAPIApi
+from unison_public_api_sdk.model.public_cohort_execute_query_request import PublicCohortExecuteQueryRequest
 
-from src.auto.auto_api_client.api_client import ApiClient
+from src.auto.unison_public_api_sdk.api_client import ApiClient
 
 
 class UnisonSDKApi:

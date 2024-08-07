@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from auto_api_client.api.public_api_api import PublicAPIApi
+#   from unison_public_api_sdk.api.public_api_api import PublicAPIApi
 #
 # or import this package, but before doing it, use:
 #
@@ -14,4 +14,4 @@
 #   sys.setrecursionlimit(n)
 
 # Import APIs into API package:
-from auto_api_client.api.public_api_api import PublicAPIApi
+from unison_public_api_sdk.api.public_api_api import PublicAPIApi
