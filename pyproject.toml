@@ -1,6 +1,6 @@
 [project]
 name = "hyperunison_public_api_sdk"
-version = "1.0.1"
+version = "1.1.8"
 authors = [
   { name="Konstantin Naumov", email="konstantin@hyperunison.com" },
 ]

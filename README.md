@@ -11,7 +11,7 @@ You will need to create API key to use the Public API. You can do it in Web inte
 ```python
 from src.UnisonSDKApi import UnisonSDKApi
 from src.auto.auto_api_client.configuration import Configuration
-    
+
 query = ''
 api_key = ''
 biobank_id = 1
