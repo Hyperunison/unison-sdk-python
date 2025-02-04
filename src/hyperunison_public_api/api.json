@@ -9,7 +9,7 @@
         "/api/public/cohort/biobank/{biobankId}/execute-query": {
             "post": {
                 "tags": [
-                    "Public API"
+                    "Cohort"
                 ],
                 "operationId": "publicCohortExecuteQuery",
                 "parameters": [
@@ -67,6 +67,102 @@
                     }
                 }
             }
+        },
+        "/api/public/pipeline/workflow/run/{pipelineVersionId}/": {
+            "post": {
+                "tags": [
+                    "Pipeline"
+                ],
+                "operationId": "runCustomWorkflow",
+                "parameters": [
+                    {
+                        "name": "pipelineVersionId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "\\d+"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "parameters",
+                                    "project",
+                                    "biobanks",
+                                    "cohort"
+                                ],
+                                "properties": {
+                                    "parameters": {
+                                        "type": "array",
+                                        "items": {},
+                                        "default": []
+                                    },
+                                    "project": {
+                                        "type": "string",
+                                        "default": ""
+                                    },
+                                    "biobanks": {
+                                        "type": "array",
+                                        "items": {},
+                                        "default": []
+                                    },
+                                    "cohort": {
+                                        "type": "string",
+                                        "default": ""
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Just OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MultiRunPipeline"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/public/pipeline/{id}": {
+            "get": {
+                "tags": [
+                    "Pipeline"
+                ],
+                "operationId": "getMultiPipeline",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get next task for runner agent",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MultiRunPipeline"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -85,13 +181,150 @@
                     }
                 },
                 "type": "object"
+            },
+            "MultiRunPipeline": {
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "runs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/RunPipeline"
+                        }
+                    },
+                    "project": {
+                        "type": "string"
+                    },
+                    "added": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "type": "object"
+            },
+            "RunPipeline": {
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "channel": {
+                        "type": "string"
+                    },
+                    "shinyFolder": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "integer"
+                    },
+                    "pipelineId": {
+                        "type": "integer"
+                    },
+                    "userId": {
+                        "type": "integer"
+                    },
+                    "datasetId": {
+                        "type": "integer"
+                    },
+                    "runnerAgent": {
+                        "$ref": "#/components/schemas/RunnerAgent"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "output": {
+                        "type": "string"
+                    },
+                    "nextflowCode": {
+                        "type": "string"
+                    },
+                    "result": {
+                        "type": "object",
+                        "additionalProperties": true
+                    },
+                    "options": {
+                        "type": "object",
+                        "additionalProperties": true
+                    },
+                    "added": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "finished": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "executionStepsStatus": {
+                        "$ref": "#/components/schemas/NextflowPipelineOutputFormatterResult"
+                    }
+                },
+                "type": "object"
+            },
+            "RunnerAgent": {
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "token": {
+                        "type": "string"
+                    },
+                    "lastActiveTime": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "type": "object"
+            },
+            "NextflowPipelineOutputFormatterResult": {
+                "properties": {
+                    "version": {
+                        "type": "string"
+                    },
+                    "error": {
+                        "type": "string"
+                    },
+                    "itemsStatus": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/NextflowPipelineOutputFormatterResultItemStatus"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "NextflowPipelineOutputFormatterResultItemStatus": {
+                "properties": {
+                    "brickName": {
+                        "type": "string"
+                    },
+                    "jobsTotal": {
+                        "type": "integer"
+                    },
+                    "jobsDone": {
+                        "type": "integer"
+                    },
+                    "finished": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object"
             }
         }
     },
     "tags": [
         {
-            "name": "Public API",
-            "description": "Public API"
+            "name": "Cohort",
+            "description": "Cohort"
+        },
+        {
+            "name": "Pipeline",
+            "description": "Pipeline"
         }
     ]
 }

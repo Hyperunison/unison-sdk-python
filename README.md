@@ -25,6 +25,7 @@ You will need to create API key to use the Public API. You can do it in Web inte
 from hyperunison_public_api import UnisonSDKApi
 from hyperunison_public_api import Configuration
 
+# Init variables
 query = ''
 api_key = ''
 biobank_id = '1'
@@ -33,10 +34,22 @@ api = UnisonSDKApi(
         host='',
     )
 )
+
+# Execute Cohort request
 response = api.execute_cohort_request(
     api_key,
     biobank_id,
     query
 )
 print(response)
+
+# Run custom workflow
+api.run_custom_workflow(
+    api_key=api_key,
+    pipeline_version_id='0',
+    parameters=list([]),
+    project='',
+    biobanks=list([]),
+    cohort=''
+)
 ```

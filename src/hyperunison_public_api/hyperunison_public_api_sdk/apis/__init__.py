@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from hyperunison_public_api_sdk.api.public_api_api import PublicAPIApi
+#   from hyperunison_public_api_sdk.api.cohort_api import CohortApi
 #
 # or import this package, but before doing it, use:
 #
@@ -14,4 +14,5 @@
 #   sys.setrecursionlimit(n)
 
 # Import APIs into API package:
-from hyperunison_public_api_sdk.api.public_api_api import PublicAPIApi
+from hyperunison_public_api_sdk.api.cohort_api import CohortApi
+from hyperunison_public_api_sdk.api.pipeline_api import PipelineApi

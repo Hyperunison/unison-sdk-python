@@ -11,14 +11,14 @@
 import unittest
 
 import hyperunison_public_api_sdk
-from hyperunison_public_api_sdk.api.public_api_api import PublicAPIApi  # noqa: E501
+from hyperunison_public_api_sdk.api.cohort_api import CohortApi  # noqa: E501
 
 
-class TestPublicAPIApi(unittest.TestCase):
-    """PublicAPIApi unit test stubs"""
+class TestCohortApi(unittest.TestCase):
+    """CohortApi unit test stubs"""
 
     def setUp(self):
-        self.api = PublicAPIApi()  # noqa: E501
+        self.api = CohortApi()  # noqa: E501
 
     def tearDown(self):
         pass

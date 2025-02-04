@@ -1,10 +1,10 @@
-# hyperunison_public_api_sdk.PublicAPIApi
+# hyperunison_public_api_sdk.CohortApi
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**public_cohort_execute_query**](PublicAPIApi.md#public_cohort_execute_query) | **POST** /api/public/cohort/biobank/{biobankId}/execute-query | 
+[**public_cohort_execute_query**](CohortApi.md#public_cohort_execute_query) | **POST** /api/public/cohort/biobank/{biobankId}/execute-query | 
 
 
 # **public_cohort_execute_query**
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 ```python
 import time
 import hyperunison_public_api_sdk
-from hyperunison_public_api_sdk.api import public_api_api
+from hyperunison_public_api_sdk.api import cohort_api
 from hyperunison_public_api_sdk.model.public_cohort_execute_query_request import PublicCohortExecuteQueryRequest
 from hyperunison_public_api_sdk.model.response_to_ucdm_result_with_sql import ResponseToUCDMResultWithSql
 from pprint import pprint
@@ -32,7 +32,7 @@ configuration = hyperunison_public_api_sdk.Configuration(
 # Enter a context with an instance of the API client
 with hyperunison_public_api_sdk.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = public_api_api.PublicAPIApi(api_client)
+    api_instance = cohort_api.CohortApi(api_client)
     api_key = "apiKey_example" # str | Authorization by Api key
     biobank_id = "4" # str | 
     public_cohort_execute_query_request = PublicCohortExecuteQueryRequest(
@@ -45,7 +45,7 @@ with hyperunison_public_api_sdk.ApiClient() as api_client:
         api_response = api_instance.public_cohort_execute_query(api_key, biobank_id)
         pprint(api_response)
     except hyperunison_public_api_sdk.ApiException as e:
-        print("Exception when calling PublicAPIApi->public_cohort_execute_query: %s\n" % e)
+        print("Exception when calling CohortApi->public_cohort_execute_query: %s\n" % e)
 
     # example passing only required values which don't have defaults set
     # and optional values
@@ -53,7 +53,7 @@ with hyperunison_public_api_sdk.ApiClient() as api_client:
         api_response = api_instance.public_cohort_execute_query(api_key, biobank_id, public_cohort_execute_query_request=public_cohort_execute_query_request)
         pprint(api_response)
     except hyperunison_public_api_sdk.ApiException as e:
-        print("Exception when calling PublicAPIApi->public_cohort_execute_query: %s\n" % e)
+        print("Exception when calling CohortApi->public_cohort_execute_query: %s\n" % e)
 ```
 
 

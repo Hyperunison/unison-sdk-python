@@ -803,7 +803,7 @@ class Endpoint(object):
         """ This method is invoked when endpoints are called
         Example:
 
-        api_instance = PublicAPIApi()
+        api_instance = CohortApi()
         api_instance.public_cohort_execute_query  # this is an instance of the class Endpoint
         api_instance.public_cohort_execute_query()  # this invokes api_instance.public_cohort_execute_query.__call__()
         which then invokes the callable functions stored in that endpoint at
