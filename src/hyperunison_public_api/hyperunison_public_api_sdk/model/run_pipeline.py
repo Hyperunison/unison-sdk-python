@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from hyperunison_public_api_sdk.model_utils import (  # noqa: F401
+from ..model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,12 +26,12 @@ from hyperunison_public_api_sdk.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from hyperunison_public_api_sdk.exceptions import ApiAttributeError
+from ..exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from hyperunison_public_api_sdk.model.nextflow_pipeline_output_formatter_result import NextflowPipelineOutputFormatterResult
-    from hyperunison_public_api_sdk.model.runner_agent import RunnerAgent
+    from ..model.nextflow_pipeline_output_formatter_result import NextflowPipelineOutputFormatterResult
+    from ..model.runner_agent import RunnerAgent
     globals()['NextflowPipelineOutputFormatterResult'] = NextflowPipelineOutputFormatterResult
     globals()['RunnerAgent'] = RunnerAgent
 

@@ -29,7 +29,7 @@ print(response)
 # Get multi pipeline
 response = api.get_multi_pipeline(
     api_key=api_key,
-    id='0'
+    id='1'
 )
 print(response)
 

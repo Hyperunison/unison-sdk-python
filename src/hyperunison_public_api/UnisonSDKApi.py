@@ -3,7 +3,7 @@ from typing import List
 from .hyperunison_public_api_sdk.api.cohort_api import CohortApi
 from .hyperunison_public_api_sdk.api.pipeline_api import PipelineApi
 from .hyperunison_public_api_sdk.model.public_cohort_execute_query_request import PublicCohortExecuteQueryRequest
-from hyperunison_public_api_sdk.model.run_custom_workflow_request import RunCustomWorkflowRequest
+from .hyperunison_public_api_sdk.model.run_custom_workflow_request import RunCustomWorkflowRequest
 
 from .hyperunison_public_api_sdk.api_client import ApiClient
 
@@ -36,6 +36,16 @@ class UnisonSDKApi:
             )
         )
 
+    def get_multi_pipeline(
+            self,
+            api_key: str,
+            id: str
+    ):
+        return self.pipeline_api_instance.get_multi_pipeline(
+            api_key = api_key,
+            id=id
+        )
+
     def run_custom_workflow(
             self,
             api_key: str,
@@ -54,14 +64,4 @@ class UnisonSDKApi:
                 biobanks=biobanks,
                 cohort=cohort
             )
-        )
-
-    def get_multi_pipeline(
-            self,
-            api_key: str,
-            id: str,
-    ):
-        return self.pipeline_api_instance.get_multi_pipeline(
-            api_key=api_key,
-            id=id
         )

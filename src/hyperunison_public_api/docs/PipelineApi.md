@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **get_multi_pipeline**
-> MultiRunPipeline get_multi_pipeline(id)
+> MultiRunPipeline get_multi_pipeline(api_key, id)
 
 
 
@@ -33,11 +33,12 @@ configuration = hyperunison_public_api_sdk.Configuration(
 with hyperunison_public_api_sdk.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = pipeline_api.PipelineApi(api_client)
+    api_key = "apiKey_example" # str | Authorization by Api key
     id = "id_example" # str | 
 
     # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.get_multi_pipeline(id)
+        api_response = api_instance.get_multi_pipeline(api_key, id)
         pprint(api_response)
     except hyperunison_public_api_sdk.ApiException as e:
         print("Exception when calling PipelineApi->get_multi_pipeline: %s\n" % e)
@@ -48,6 +49,7 @@ with hyperunison_public_api_sdk.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_key** | **str**| Authorization by Api key |
  **id** | **str**|  |
 
 ### Return type
@@ -73,7 +75,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **run_custom_workflow**
-> MultiRunPipeline run_custom_workflow(pipeline_version_id)
+> MultiRunPipeline run_custom_workflow(api_key, pipeline_version_id)
 
 
 
@@ -98,6 +100,7 @@ configuration = hyperunison_public_api_sdk.Configuration(
 with hyperunison_public_api_sdk.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = pipeline_api.PipelineApi(api_client)
+    api_key = "apiKey_example" # str | Authorization by Api key
     pipeline_version_id = "4" # str | 
     run_custom_workflow_request = RunCustomWorkflowRequest(
         parameters=[],
@@ -108,7 +111,7 @@ with hyperunison_public_api_sdk.ApiClient() as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.run_custom_workflow(pipeline_version_id)
+        api_response = api_instance.run_custom_workflow(api_key, pipeline_version_id)
         pprint(api_response)
     except hyperunison_public_api_sdk.ApiException as e:
         print("Exception when calling PipelineApi->run_custom_workflow: %s\n" % e)
@@ -116,7 +119,7 @@ with hyperunison_public_api_sdk.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.run_custom_workflow(pipeline_version_id, run_custom_workflow_request=run_custom_workflow_request)
+        api_response = api_instance.run_custom_workflow(api_key, pipeline_version_id, run_custom_workflow_request=run_custom_workflow_request)
         pprint(api_response)
     except hyperunison_public_api_sdk.ApiException as e:
         print("Exception when calling PipelineApi->run_custom_workflow: %s\n" % e)
@@ -127,6 +130,7 @@ with hyperunison_public_api_sdk.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_key** | **str**| Authorization by Api key |
  **pipeline_version_id** | **str**|  |
  **run_custom_workflow_request** | [**RunCustomWorkflowRequest**](RunCustomWorkflowRequest.md)|  | [optional]
 

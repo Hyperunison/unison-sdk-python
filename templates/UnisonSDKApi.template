@@ -36,6 +36,16 @@ class UnisonSDKApi:
             )
         )
 
+    def get_multi_pipeline(
+            self,
+            api_key: str,
+            id: str
+    ):
+        return self.pipeline_api_instance.get_multi_pipeline(
+            api_key = api_key,
+            id=id
+        )
+
     def run_custom_workflow(
             self,
             api_key: str,

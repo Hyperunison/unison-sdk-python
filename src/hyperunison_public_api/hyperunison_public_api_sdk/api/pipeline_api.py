@@ -47,9 +47,11 @@ class PipelineApi(object):
             },
             params_map={
                 'all': [
+                    'api_key',
                     'id',
                 ],
                 'required': [
+                    'api_key',
                     'id',
                 ],
                 'nullable': [
@@ -65,13 +67,17 @@ class PipelineApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'api_key':
+                        (str,),
                     'id':
                         (str,),
                 },
                 'attribute_map': {
+                    'api_key': 'apiKey',
                     'id': 'id',
                 },
                 'location_map': {
+                    'api_key': 'header',
                     'id': 'path',
                 },
                 'collection_format_map': {
@@ -96,10 +102,12 @@ class PipelineApi(object):
             },
             params_map={
                 'all': [
+                    'api_key',
                     'pipeline_version_id',
                     'run_custom_workflow_request',
                 ],
                 'required': [
+                    'api_key',
                     'pipeline_version_id',
                 ],
                 'nullable': [
@@ -122,15 +130,19 @@ class PipelineApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'api_key':
+                        (str,),
                     'pipeline_version_id':
                         (str,),
                     'run_custom_workflow_request':
                         (RunCustomWorkflowRequest,),
                 },
                 'attribute_map': {
+                    'api_key': 'apiKey',
                     'pipeline_version_id': 'pipelineVersionId',
                 },
                 'location_map': {
+                    'api_key': 'header',
                     'pipeline_version_id': 'path',
                     'run_custom_workflow_request': 'body',
                 },
@@ -150,6 +162,7 @@ class PipelineApi(object):
 
     def get_multi_pipeline(
         self,
+        api_key,
         id,
         **kwargs
     ):
@@ -158,10 +171,11 @@ class PipelineApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_multi_pipeline(id, async_req=True)
+        >>> thread = api.get_multi_pipeline(api_key, id, async_req=True)
         >>> result = thread.get()
 
         Args:
+            api_key (str): Authorization by Api key
             id (str):
 
         Keyword Args:
@@ -226,12 +240,15 @@ class PipelineApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['api_key'] = \
+            api_key
         kwargs['id'] = \
             id
         return self.get_multi_pipeline_endpoint.call_with_http_info(**kwargs)
 
     def run_custom_workflow(
         self,
+        api_key,
         pipeline_version_id,
         **kwargs
     ):
@@ -240,10 +257,11 @@ class PipelineApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.run_custom_workflow(pipeline_version_id, async_req=True)
+        >>> thread = api.run_custom_workflow(api_key, pipeline_version_id, async_req=True)
         >>> result = thread.get()
 
         Args:
+            api_key (str): Authorization by Api key
             pipeline_version_id (str):
 
         Keyword Args:
@@ -309,6 +327,8 @@ class PipelineApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['api_key'] = \
+            api_key
         kwargs['pipeline_version_id'] = \
             pipeline_version_id
         return self.run_custom_workflow_endpoint.call_with_http_info(**kwargs)

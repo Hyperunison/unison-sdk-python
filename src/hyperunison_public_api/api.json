@@ -76,6 +76,15 @@
                 "operationId": "runCustomWorkflow",
                 "parameters": [
                     {
+                        "name": "apiKey",
+                        "in": "header",
+                        "description": "Authorization by Api key",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
                         "name": "pipelineVersionId",
                         "in": "path",
                         "required": true,
@@ -141,6 +150,15 @@
                 ],
                 "operationId": "getMultiPipeline",
                 "parameters": [
+                    {
+                        "name": "apiKey",
+                        "in": "header",
+                        "description": "Authorization by Api key",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
                     {
                         "name": "id",
                         "in": "path",
