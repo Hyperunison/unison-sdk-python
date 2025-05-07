@@ -1,16 +1,17 @@
-Metadata-Version: 2.2
+Metadata-Version: 2.4
 Name: hyperunison_public_api_sdk
-Version: 1.2.3
+Version: 2.0
 Summary: Python SDK to use public API of Unison
 Author-email: Konstantin Naumov <konstantin@hyperunison.com>
+License-Expression: MIT
 Project-URL: Homepage, https://github.com/Hyperunison/unison-sdk-python
 Project-URL: Issues, https://github.com/Hyperunison/unison-sdk-python/issues
 Classifier: Programming Language :: Python :: 3
-Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent
 Requires-Python: >=3.8
 Description-Content-Type: text/markdown
 License-File: LICENSE
+Dynamic: license-file
 
 # Hyperunison Python SDK
 

@@ -16,3 +16,5 @@
 # Import APIs into API package:
 from hyperunison_public_api_sdk.api.cohort_api import CohortApi
 from hyperunison_public_api_sdk.api.pipeline_api import PipelineApi
+from hyperunison_public_api_sdk.api.structure_api import StructureApi
+from hyperunison_public_api_sdk.api.suggester_api import SuggesterApi

@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**public_cohort_execute_query**](CohortApi.md#public_cohort_execute_query) | **POST** /api/public/cohort/biobank/{biobankId}/execute-query | 
+[**public_cohort_execute_query**](CohortApi.md#public_cohort_execute_query) | **POST** /api/public/cohort/biobank/execute-query | 
 
 
 # **public_cohort_execute_query**
-> ResponseToUCDMResultWithSql public_cohort_execute_query(api_key, biobank_id)
+> ResponseToUCDMResultWithSql public_cohort_execute_query(api_key)
 
 
 
@@ -34,7 +34,6 @@ with hyperunison_public_api_sdk.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = cohort_api.CohortApi(api_client)
     api_key = "apiKey_example" # str | Authorization by Api key
-    biobank_id = "4" # str | 
     public_cohort_execute_query_request = PublicCohortExecuteQueryRequest(
         yaml="yaml_example",
         skip_cache="skip_cache_example",
@@ -42,7 +41,7 @@ with hyperunison_public_api_sdk.ApiClient() as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.public_cohort_execute_query(api_key, biobank_id)
+        api_response = api_instance.public_cohort_execute_query(api_key)
         pprint(api_response)
     except hyperunison_public_api_sdk.ApiException as e:
         print("Exception when calling CohortApi->public_cohort_execute_query: %s\n" % e)
@@ -50,7 +49,7 @@ with hyperunison_public_api_sdk.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.public_cohort_execute_query(api_key, biobank_id, public_cohort_execute_query_request=public_cohort_execute_query_request)
+        api_response = api_instance.public_cohort_execute_query(api_key, public_cohort_execute_query_request=public_cohort_execute_query_request)
         pprint(api_response)
     except hyperunison_public_api_sdk.ApiException as e:
         print("Exception when calling CohortApi->public_cohort_execute_query: %s\n" % e)
@@ -62,7 +61,6 @@ with hyperunison_public_api_sdk.ApiClient() as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **api_key** | **str**| Authorization by Api key |
- **biobank_id** | **str**|  |
  **public_cohort_execute_query_request** | [**PublicCohortExecuteQueryRequest**](PublicCohortExecuteQueryRequest.md)|  | [optional]
 
 ### Return type

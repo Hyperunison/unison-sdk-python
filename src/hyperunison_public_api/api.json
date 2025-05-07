@@ -6,7 +6,7 @@
         "version": "1.0.0"
     },
     "paths": {
-        "/api/public/cohort/biobank/{biobankId}/execute-query": {
+        "/api/public/cohort/biobank/execute-query": {
             "post": {
                 "tags": [
                     "Cohort"
@@ -20,15 +20,6 @@
                         "required": true,
                         "schema": {
                             "type": "string"
-                        }
-                    },
-                    {
-                        "name": "biobankId",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "pattern": "\\d+"
                         }
                     }
                 ],
@@ -181,6 +172,330 @@
                     }
                 }
             }
+        },
+        "/api/public/structure/save": {
+            "post": {
+                "tags": [
+                    "Structure"
+                ],
+                "operationId": "bulkUpdateStructure",
+                "parameters": [
+                    {
+                        "name": "apiKey",
+                        "in": "header",
+                        "description": "Authorization by Api key",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "yaml"
+                                ],
+                                "properties": {
+                                    "yaml": {
+                                        "type": "string",
+                                        "default": null
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Generate suggestion response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DataItemDictionaryWithAccuracyListResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/public/structure/{code}/status": {
+            "get": {
+                "tags": [
+                    "Structure"
+                ],
+                "operationId": "get_app_publicapi_structure_getbiobankstructuremappingstatus",
+                "parameters": [
+                    {
+                        "name": "apiKey",
+                        "in": "header",
+                        "description": "Authorization by Api key",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "code",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Status by biobank code",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DataItemDictionaryWithAccuracyListResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/public/structure/biobanks/{biobankCode}/cdm-export": {
+            "post": {
+                "tags": [
+                    "Structure"
+                ],
+                "operationId": "exportDatabase",
+                "parameters": [
+                    {
+                        "name": "apiKey",
+                        "in": "header",
+                        "description": "Authorization by Api key",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "cdm",
+                        "in": "query",
+                        "description": "CDM ID. Format: vendor/name:version. By Default: demo/OMOP:5.4 (OMOP 5.4)",
+                        "required": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "default": "demo/OMOP:5.4",
+                            "pattern": "^(\\w+)/(\\w+):(.*)$"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Optional. Max count items in the export files, for each file. Use it for debug only",
+                        "required": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "default": "",
+                            "pattern": "^\\d+$"
+                        }
+                    },
+                    {
+                        "name": "cdmTables[]",
+                        "in": "query",
+                        "description": "Optional. An array of cdm tables to limit export. For example: ['person', 'procedure']",
+                        "required": false,
+                        "allowEmptyValue": false,
+                        "explode": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {},
+                            "default": [],
+                            "pattern": "^\\w+$"
+                        }
+                    },
+                    {
+                        "name": "format",
+                        "in": "query",
+                        "description": "Format of the export. Available values: csv, postgresql, sqlite",
+                        "required": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "default": "csv",
+                            "pattern": "^(csv|postgresql|sqlite)$"
+                        }
+                    },
+                    {
+                        "name": "connectionString",
+                        "in": "query",
+                        "description": "For PostgreSQL formats only. Format: dbType://username:password@hostname:port/dbName",
+                        "required": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string",
+                            "default": null,
+                            "pattern": "^(postgres(ql)?|sqlite)://\\w+(:[^@]+)?@?[\\w.-]+(:\\d+)?/\\w+(\\?.*)?$"
+                        }
+                    },
+                    {
+                        "name": "runDQD",
+                        "in": "query",
+                        "description": "Check name to run. Default if none. Possible values: OMOP-5.4",
+                        "required": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "",
+                            "pattern": "^(OMOP-5.4)?$"
+                        }
+                    },
+                    {
+                        "name": "biobankCode",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "\\w+"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Create pipelines to export OMOP database for specific biobanks",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BiobankOMOPExportResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/public/structure/job/{jobId}": {
+            "post": {
+                "tags": [
+                    "Structure"
+                ],
+                "operationId": "post_app_publicapi_structure_getexportjobstatus",
+                "parameters": [
+                    {
+                        "name": "apiKey",
+                        "in": "header",
+                        "description": "Authorization by Api key",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "jobId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "\\d+"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/public/suggester/generate/{code}": {
+            "get": {
+                "tags": [
+                    "Suggester"
+                ],
+                "operationId": "generateSuggests",
+                "parameters": [
+                    {
+                        "name": "apiKey",
+                        "in": "header",
+                        "description": "Authorization by Api key",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "apiKey",
+                        "in": "query",
+                        "description": "Authorization by Api key",
+                        "required": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "default": ""
+                        }
+                    },
+                    {
+                        "name": "domain",
+                        "in": "query",
+                        "description": "Domain value to generate suggests (by default - all available domains)",
+                        "required": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "default": ""
+                        }
+                    },
+                    {
+                        "name": "vocabulary",
+                        "in": "query",
+                        "description": "Vocabulary value to generate suggests (by default - all available vocabularies)",
+                        "required": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "default": ""
+                        }
+                    },
+                    {
+                        "name": "onlyStandardConcept",
+                        "in": "query",
+                        "description": "Suggest only standard concepts (by default - 1)",
+                        "required": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "default": ""
+                        }
+                    },
+                    {
+                        "name": "minAccuracyToRunGPT",
+                        "in": "query",
+                        "description": "Min accuracy rate to run suggester with ChatGPT (by default - 30)",
+                        "required": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "default": ""
+                        }
+                    },
+                    {
+                        "name": "code",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Generate suggestion response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DataItemDictionaryWithAccuracyListResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -217,6 +532,34 @@
                     "added": {
                         "type": "string",
                         "format": "date-time"
+                    }
+                },
+                "type": "object"
+            },
+            "DataItemDictionaryWithAccuracyListResponse": {
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/DataItemDictionaryWithAccuracyResponse"
+                        }
+                    },
+                    "count": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "BiobankOMOPExportResponse": {
+                "properties": {
+                    "biobankId": {
+                        "type": "integer"
+                    },
+                    "jobId": {
+                        "type": "integer"
+                    },
+                    "replyChannelName": {
+                        "type": "string"
                     }
                 },
                 "type": "object"
@@ -274,6 +617,35 @@
                     },
                     "executionStepsStatus": {
                         "$ref": "#/components/schemas/NextflowPipelineOutputFormatterResult"
+                    }
+                },
+                "type": "object"
+            },
+            "DataItemDictionaryWithAccuracyResponse": {
+                "properties": {
+                    "accuracy": {
+                        "type": "integer"
+                    },
+                    "conceptId": {
+                        "type": "integer"
+                    },
+                    "conceptName": {
+                        "type": "string"
+                    },
+                    "conceptCode": {
+                        "type": "string"
+                    },
+                    "vocabulary": {
+                        "type": "string"
+                    },
+                    "domain": {
+                        "type": "string"
+                    },
+                    "conceptClass": {
+                        "type": "string"
+                    },
+                    "explanation": {
+                        "type": "string"
                     }
                 },
                 "type": "object"
@@ -343,6 +715,14 @@
         {
             "name": "Pipeline",
             "description": "Pipeline"
+        },
+        {
+            "name": "Structure",
+            "description": "Structure"
+        },
+        {
+            "name": "Suggester",
+            "description": "Suggester"
         }
     ]
 }
