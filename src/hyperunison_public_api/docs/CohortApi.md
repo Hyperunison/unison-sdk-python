@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **public_cohort_execute_query**
-> ResponseToUCDMResultWithSql public_cohort_execute_query(api_key)
+> [ResponseToUCDMResultWithSql] public_cohort_execute_query(api_key)
 
 
 
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseToUCDMResultWithSql**](ResponseToUCDMResultWithSql.md)
+[**[ResponseToUCDMResultWithSql]**](ResponseToUCDMResultWithSql.md)
 
 ### Authorization
 

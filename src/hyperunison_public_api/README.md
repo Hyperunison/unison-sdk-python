@@ -88,9 +88,9 @@ Class | Method | HTTP request | Description
 *PipelineApi* | [**run_custom_workflow**](docs/PipelineApi.md#run_custom_workflow) | **POST** /api/public/pipeline/workflow/run/{pipelineVersionId}/ | 
 *StructureApi* | [**bulk_update_structure**](docs/StructureApi.md#bulk_update_structure) | **POST** /api/public/structure/save | 
 *StructureApi* | [**export_database**](docs/StructureApi.md#export_database) | **POST** /api/public/structure/biobanks/{biobankCode}/cdm-export | 
-*StructureApi* | [**get_app_publicapi_structure_getbiobankstructuremappingstatus**](docs/StructureApi.md#get_app_publicapi_structure_getbiobankstructuremappingstatus) | **GET** /api/public/structure/{code}/status | 
-*StructureApi* | [**post_app_publicapi_structure_getexportjobstatus**](docs/StructureApi.md#post_app_publicapi_structure_getexportjobstatus) | **POST** /api/public/structure/job/{jobId} | 
-*SuggesterApi* | [**generate_suggests**](docs/SuggesterApi.md#generate_suggests) | **GET** /api/public/suggester/generate/{code} | 
+*StructureApi* | [**get_app_publicapi_structure_getbiobankstructuremappingstatus**](docs/StructureApi.md#get_app_publicapi_structure_getbiobankstructuremappingstatus) | **GET** /api/public/structure/{biobankCode}/status | 
+*StructureApi* | [**get_job**](docs/StructureApi.md#get_job) | **GET** /api/public/structure/job/{jobId} | 
+*SuggesterApi* | [**generate_suggests**](docs/SuggesterApi.md#generate_suggests) | **GET** /api/public/suggester/generate/{biobankCode} | 
 
 
 ## Documentation For Models
@@ -99,6 +99,7 @@ Class | Method | HTTP request | Description
  - [BulkUpdateStructureRequest](docs/BulkUpdateStructureRequest.md)
  - [DataItemDictionaryWithAccuracyListResponse](docs/DataItemDictionaryWithAccuracyListResponse.md)
  - [DataItemDictionaryWithAccuracyResponse](docs/DataItemDictionaryWithAccuracyResponse.md)
+ - [Job](docs/Job.md)
  - [MultiRunPipeline](docs/MultiRunPipeline.md)
  - [NextflowPipelineOutputFormatterResult](docs/NextflowPipelineOutputFormatterResult.md)
  - [NextflowPipelineOutputFormatterResultItemStatus](docs/NextflowPipelineOutputFormatterResultItemStatus.md)

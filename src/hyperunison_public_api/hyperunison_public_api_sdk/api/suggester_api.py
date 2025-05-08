@@ -39,14 +39,14 @@ class SuggesterApi(object):
             settings={
                 'response_type': (DataItemDictionaryWithAccuracyListResponse,),
                 'auth': [],
-                'endpoint_path': '/api/public/suggester/generate/{code}',
+                'endpoint_path': '/api/public/suggester/generate/{biobankCode}',
                 'operation_id': 'generate_suggests',
                 'http_method': 'GET',
                 'servers': None,
             },
             params_map={
                 'all': [
-                    'code',
+                    'biobank_code',
                     'api_key',
                     'api_key2',
                     'domain',
@@ -55,7 +55,7 @@ class SuggesterApi(object):
                     'min_accuracy_to_run_gpt',
                 ],
                 'required': [
-                    'code',
+                    'biobank_code',
                 ],
                 'nullable': [
                 ],
@@ -70,7 +70,7 @@ class SuggesterApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'code':
+                    'biobank_code':
                         (str,),
                     'api_key':
                         (str,),
@@ -86,7 +86,7 @@ class SuggesterApi(object):
                         (str,),
                 },
                 'attribute_map': {
-                    'code': 'code',
+                    'biobank_code': 'biobankCode',
                     'api_key': 'apiKey',
                     'api_key2': 'apiKey',
                     'domain': 'domain',
@@ -95,7 +95,7 @@ class SuggesterApi(object):
                     'min_accuracy_to_run_gpt': 'minAccuracyToRunGPT',
                 },
                 'location_map': {
-                    'code': 'path',
+                    'biobank_code': 'path',
                     'api_key': 'header',
                     'api_key2': 'query',
                     'domain': 'query',
@@ -117,7 +117,7 @@ class SuggesterApi(object):
 
     def generate_suggests(
         self,
-        code,
+        biobank_code,
         **kwargs
     ):
         """generate_suggests  # noqa: E501
@@ -125,11 +125,11 @@ class SuggesterApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.generate_suggests(code, async_req=True)
+        >>> thread = api.generate_suggests(biobank_code, async_req=True)
         >>> result = thread.get()
 
         Args:
-            code (str):
+            biobank_code (str):
 
         Keyword Args:
             api_key (str): Authorization by Api key. [optional]
@@ -199,7 +199,7 @@ class SuggesterApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['code'] = \
-            code
+        kwargs['biobank_code'] = \
+            biobank_code
         return self.generate_suggests_endpoint.call_with_http_info(**kwargs)
 

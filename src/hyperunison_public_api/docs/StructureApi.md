@@ -6,8 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**bulk_update_structure**](StructureApi.md#bulk_update_structure) | **POST** /api/public/structure/save | 
 [**export_database**](StructureApi.md#export_database) | **POST** /api/public/structure/biobanks/{biobankCode}/cdm-export | 
-[**get_app_publicapi_structure_getbiobankstructuremappingstatus**](StructureApi.md#get_app_publicapi_structure_getbiobankstructuremappingstatus) | **GET** /api/public/structure/{code}/status | 
-[**post_app_publicapi_structure_getexportjobstatus**](StructureApi.md#post_app_publicapi_structure_getexportjobstatus) | **POST** /api/public/structure/job/{jobId} | 
+[**get_app_publicapi_structure_getbiobankstructuremappingstatus**](StructureApi.md#get_app_publicapi_structure_getbiobankstructuremappingstatus) | **GET** /api/public/structure/{biobankCode}/status | 
+[**get_job**](StructureApi.md#get_job) | **GET** /api/public/structure/job/{jobId} | 
 
 
 # **bulk_update_structure**
@@ -167,7 +167,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_app_publicapi_structure_getbiobankstructuremappingstatus**
-> DataItemDictionaryWithAccuracyListResponse get_app_publicapi_structure_getbiobankstructuremappingstatus(code)
+> DataItemDictionaryWithAccuracyListResponse get_app_publicapi_structure_getbiobankstructuremappingstatus(biobank_code)
 
 
 
@@ -191,12 +191,12 @@ configuration = hyperunison_public_api_sdk.Configuration(
 with hyperunison_public_api_sdk.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = structure_api.StructureApi(api_client)
-    code = "code_example" # str | 
+    biobank_code = "biobankCode_example" # str | 
     api_key = "apiKey_example" # str | Authorization by Api key (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.get_app_publicapi_structure_getbiobankstructuremappingstatus(code)
+        api_response = api_instance.get_app_publicapi_structure_getbiobankstructuremappingstatus(biobank_code)
         pprint(api_response)
     except hyperunison_public_api_sdk.ApiException as e:
         print("Exception when calling StructureApi->get_app_publicapi_structure_getbiobankstructuremappingstatus: %s\n" % e)
@@ -204,7 +204,7 @@ with hyperunison_public_api_sdk.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.get_app_publicapi_structure_getbiobankstructuremappingstatus(code, api_key=api_key)
+        api_response = api_instance.get_app_publicapi_structure_getbiobankstructuremappingstatus(biobank_code, api_key=api_key)
         pprint(api_response)
     except hyperunison_public_api_sdk.ApiException as e:
         print("Exception when calling StructureApi->get_app_publicapi_structure_getbiobankstructuremappingstatus: %s\n" % e)
@@ -215,7 +215,7 @@ with hyperunison_public_api_sdk.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **code** | **str**|  |
+ **biobank_code** | **str**|  |
  **api_key** | **str**| Authorization by Api key | [optional]
 
 ### Return type
@@ -240,8 +240,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **post_app_publicapi_structure_getexportjobstatus**
-> post_app_publicapi_structure_getexportjobstatus(job_id)
+# **get_job**
+> Job get_job(job_id)
 
 
 
@@ -252,6 +252,7 @@ No authorization required
 import time
 import hyperunison_public_api_sdk
 from hyperunison_public_api_sdk.api import structure_api
+from hyperunison_public_api_sdk.model.job import Job
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -269,16 +270,18 @@ with hyperunison_public_api_sdk.ApiClient() as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        api_instance.post_app_publicapi_structure_getexportjobstatus(job_id)
+        api_response = api_instance.get_job(job_id)
+        pprint(api_response)
     except hyperunison_public_api_sdk.ApiException as e:
-        print("Exception when calling StructureApi->post_app_publicapi_structure_getexportjobstatus: %s\n" % e)
+        print("Exception when calling StructureApi->get_job: %s\n" % e)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_instance.post_app_publicapi_structure_getexportjobstatus(job_id, api_key=api_key)
+        api_response = api_instance.get_job(job_id, api_key=api_key)
+        pprint(api_response)
     except hyperunison_public_api_sdk.ApiException as e:
-        print("Exception when calling StructureApi->post_app_publicapi_structure_getexportjobstatus: %s\n" % e)
+        print("Exception when calling StructureApi->get_job: %s\n" % e)
 ```
 
 
@@ -291,7 +294,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**Job**](Job.md)
 
 ### Authorization
 
@@ -300,14 +303,14 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**0** |  |  -  |
+**200** | Get job |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

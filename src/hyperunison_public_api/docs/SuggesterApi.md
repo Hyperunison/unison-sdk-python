@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**generate_suggests**](SuggesterApi.md#generate_suggests) | **GET** /api/public/suggester/generate/{code} | 
+[**generate_suggests**](SuggesterApi.md#generate_suggests) | **GET** /api/public/suggester/generate/{biobankCode} | 
 
 
 # **generate_suggests**
-> DataItemDictionaryWithAccuracyListResponse generate_suggests(code)
+> DataItemDictionaryWithAccuracyListResponse generate_suggests(biobank_code)
 
 
 
@@ -32,7 +32,7 @@ configuration = hyperunison_public_api_sdk.Configuration(
 with hyperunison_public_api_sdk.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = suggester_api.SuggesterApi(api_client)
-    code = "code_example" # str | 
+    biobank_code = "biobankCode_example" # str | 
     api_key = "apiKey_example" # str | Authorization by Api key (optional)
     api_key2 = "" # str | Authorization by Api key (optional) if omitted the server will use the default value of ""
     domain = "" # str | Domain value to generate suggests (by default - all available domains) (optional) if omitted the server will use the default value of ""
@@ -42,7 +42,7 @@ with hyperunison_public_api_sdk.ApiClient() as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.generate_suggests(code)
+        api_response = api_instance.generate_suggests(biobank_code)
         pprint(api_response)
     except hyperunison_public_api_sdk.ApiException as e:
         print("Exception when calling SuggesterApi->generate_suggests: %s\n" % e)
@@ -50,7 +50,7 @@ with hyperunison_public_api_sdk.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.generate_suggests(code, api_key=api_key, api_key2=api_key2, domain=domain, vocabulary=vocabulary, only_standard_concept=only_standard_concept, min_accuracy_to_run_gpt=min_accuracy_to_run_gpt)
+        api_response = api_instance.generate_suggests(biobank_code, api_key=api_key, api_key2=api_key2, domain=domain, vocabulary=vocabulary, only_standard_concept=only_standard_concept, min_accuracy_to_run_gpt=min_accuracy_to_run_gpt)
         pprint(api_response)
     except hyperunison_public_api_sdk.ApiException as e:
         print("Exception when calling SuggesterApi->generate_suggests: %s\n" % e)
@@ -61,7 +61,7 @@ with hyperunison_public_api_sdk.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **code** | **str**|  |
+ **biobank_code** | **str**|  |
  **api_key** | **str**| Authorization by Api key | [optional]
  **api_key2** | **str**| Authorization by Api key | [optional] if omitted the server will use the default value of ""
  **domain** | **str**| Domain value to generate suggests (by default - all available domains) | [optional] if omitted the server will use the default value of ""

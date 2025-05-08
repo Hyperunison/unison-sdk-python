@@ -7,6 +7,7 @@ docs/BulkUpdateStructureRequest.md
 docs/CohortApi.md
 docs/DataItemDictionaryWithAccuracyListResponse.md
 docs/DataItemDictionaryWithAccuracyResponse.md
+docs/Job.md
 docs/MultiRunPipeline.md
 docs/NextflowPipelineOutputFormatterResult.md
 docs/NextflowPipelineOutputFormatterResultItemStatus.md
@@ -34,6 +35,7 @@ hyperunison_public_api_sdk/model/biobank_omop_export_response.py
 hyperunison_public_api_sdk/model/bulk_update_structure_request.py
 hyperunison_public_api_sdk/model/data_item_dictionary_with_accuracy_list_response.py
 hyperunison_public_api_sdk/model/data_item_dictionary_with_accuracy_response.py
+hyperunison_public_api_sdk/model/job.py
 hyperunison_public_api_sdk/model/multi_run_pipeline.py
 hyperunison_public_api_sdk/model/nextflow_pipeline_output_formatter_result.py
 hyperunison_public_api_sdk/model/nextflow_pipeline_output_formatter_result_item_status.py
@@ -50,20 +52,5 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_biobank_omop_export_response.py
-test/test_bulk_update_structure_request.py
-test/test_cohort_api.py
-test/test_data_item_dictionary_with_accuracy_list_response.py
-test/test_data_item_dictionary_with_accuracy_response.py
-test/test_multi_run_pipeline.py
-test/test_nextflow_pipeline_output_formatter_result.py
-test/test_nextflow_pipeline_output_formatter_result_item_status.py
-test/test_pipeline_api.py
-test/test_public_cohort_execute_query_request.py
-test/test_response_to_ucdm_result_with_sql.py
-test/test_run_custom_workflow_request.py
-test/test_run_pipeline.py
-test/test_runner_agent.py
-test/test_structure_api.py
-test/test_suggester_api.py
+test/test_job.py
 tox.ini

@@ -51,7 +51,10 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ResponseToUCDMResultWithSql"
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ResponseToUCDMResultWithSql"
+                                    }
                                 }
                             }
                         }
@@ -221,7 +224,7 @@
                 }
             }
         },
-        "/api/public/structure/{code}/status": {
+        "/api/public/structure/{biobankCode}/status": {
             "get": {
                 "tags": [
                     "Structure"
@@ -237,7 +240,7 @@
                         }
                     },
                     {
-                        "name": "code",
+                        "name": "biobankCode",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -373,11 +376,11 @@
             }
         },
         "/api/public/structure/job/{jobId}": {
-            "post": {
+            "get": {
                 "tags": [
                     "Structure"
                 ],
-                "operationId": "post_app_publicapi_structure_getexportjobstatus",
+                "operationId": "getJob",
                 "parameters": [
                     {
                         "name": "apiKey",
@@ -398,13 +401,20 @@
                     }
                 ],
                 "responses": {
-                    "default": {
-                        "description": ""
+                    "200": {
+                        "description": "Get job",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Job"
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
-        "/api/public/suggester/generate/{code}": {
+        "/api/public/suggester/generate/{biobankCode}": {
             "get": {
                 "tags": [
                     "Suggester"
@@ -475,7 +485,7 @@
                         }
                     },
                     {
-                        "name": "code",
+                        "name": "biobankCode",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -510,6 +520,12 @@
                         }
                     },
                     "sql": {
+                        "type": "string"
+                    },
+                    "biobankCode": {
+                        "type": "string"
+                    },
+                    "error": {
                         "type": "string"
                     }
                 },
@@ -560,6 +576,38 @@
                     },
                     "replyChannelName": {
                         "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Job": {
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "data": {
+                        "type": "object",
+                        "additionalProperties": true
+                    },
+                    "state": {
+                        "type": "string"
+                    },
+                    "result": {
+                        "type": "object",
+                        "additionalProperties": true
+                    },
+                    "replyChannelName": {
+                        "type": "string"
+                    },
+                    "logs": {
+                        "type": "string"
+                    },
+                    "added": {
+                        "type": "string",
+                        "format": "date-time"
                     }
                 },
                 "type": "object"

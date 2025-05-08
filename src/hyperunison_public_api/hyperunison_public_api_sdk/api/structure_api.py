@@ -24,6 +24,7 @@ from ..model_utils import (  # noqa: F401
 from ..model.biobank_omop_export_response import BiobankOMOPExportResponse
 from ..model.bulk_update_structure_request import BulkUpdateStructureRequest
 from ..model.data_item_dictionary_with_accuracy_list_response import DataItemDictionaryWithAccuracyListResponse
+from ..model.job import Job
 
 
 class StructureApi(object):
@@ -228,18 +229,18 @@ class StructureApi(object):
             settings={
                 'response_type': (DataItemDictionaryWithAccuracyListResponse,),
                 'auth': [],
-                'endpoint_path': '/api/public/structure/{code}/status',
+                'endpoint_path': '/api/public/structure/{biobankCode}/status',
                 'operation_id': 'get_app_publicapi_structure_getbiobankstructuremappingstatus',
                 'http_method': 'GET',
                 'servers': None,
             },
             params_map={
                 'all': [
-                    'code',
+                    'biobank_code',
                     'api_key',
                 ],
                 'required': [
-                    'code',
+                    'biobank_code',
                 ],
                 'nullable': [
                 ],
@@ -254,17 +255,17 @@ class StructureApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'code':
+                    'biobank_code':
                         (str,),
                     'api_key':
                         (str,),
                 },
                 'attribute_map': {
-                    'code': 'code',
+                    'biobank_code': 'biobankCode',
                     'api_key': 'apiKey',
                 },
                 'location_map': {
-                    'code': 'path',
+                    'biobank_code': 'path',
                     'api_key': 'header',
                 },
                 'collection_format_map': {
@@ -278,13 +279,13 @@ class StructureApi(object):
             },
             api_client=api_client
         )
-        self.post_app_publicapi_structure_getexportjobstatus_endpoint = _Endpoint(
+        self.get_job_endpoint = _Endpoint(
             settings={
-                'response_type': None,
+                'response_type': (Job,),
                 'auth': [],
                 'endpoint_path': '/api/public/structure/job/{jobId}',
-                'operation_id': 'post_app_publicapi_structure_getexportjobstatus',
-                'http_method': 'POST',
+                'operation_id': 'get_job',
+                'http_method': 'GET',
                 'servers': None,
             },
             params_map={
@@ -332,7 +333,9 @@ class StructureApi(object):
                 }
             },
             headers_map={
-                'accept': [],
+                'accept': [
+                    'application/json'
+                ],
                 'content_type': [],
             },
             api_client=api_client
@@ -508,7 +511,7 @@ class StructureApi(object):
 
     def get_app_publicapi_structure_getbiobankstructuremappingstatus(
         self,
-        code,
+        biobank_code,
         **kwargs
     ):
         """get_app_publicapi_structure_getbiobankstructuremappingstatus  # noqa: E501
@@ -516,11 +519,11 @@ class StructureApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_app_publicapi_structure_getbiobankstructuremappingstatus(code, async_req=True)
+        >>> thread = api.get_app_publicapi_structure_getbiobankstructuremappingstatus(biobank_code, async_req=True)
         >>> result = thread.get()
 
         Args:
-            code (str):
+            biobank_code (str):
 
         Keyword Args:
             api_key (str): Authorization by Api key. [optional]
@@ -585,21 +588,21 @@ class StructureApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['code'] = \
-            code
+        kwargs['biobank_code'] = \
+            biobank_code
         return self.get_app_publicapi_structure_getbiobankstructuremappingstatus_endpoint.call_with_http_info(**kwargs)
 
-    def post_app_publicapi_structure_getexportjobstatus(
+    def get_job(
         self,
         job_id,
         **kwargs
     ):
-        """post_app_publicapi_structure_getexportjobstatus  # noqa: E501
+        """get_job  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.post_app_publicapi_structure_getexportjobstatus(job_id, async_req=True)
+        >>> thread = api.get_job(job_id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -639,7 +642,7 @@ class StructureApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            None
+            Job
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -670,5 +673,5 @@ class StructureApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['job_id'] = \
             job_id
-        return self.post_app_publicapi_structure_getexportjobstatus_endpoint.call_with_http_info(**kwargs)
+        return self.get_job_endpoint.call_with_http_info(**kwargs)
 

@@ -5,7 +5,7 @@ from .hyperunison_public_api_sdk.api.pipeline_api import PipelineApi
 from .hyperunison_public_api_sdk.api.suggester_api import SuggesterApi
 from .hyperunison_public_api_sdk.api.structure_api import StructureApi
 from .hyperunison_public_api_sdk.model.public_cohort_execute_query_request import PublicCohortExecuteQueryRequest
-from hyperunison_public_api_sdk.model.run_custom_workflow_request import RunCustomWorkflowRequest
+from .hyperunison_public_api_sdk.model.run_custom_workflow_request import RunCustomWorkflowRequest
 
 from .hyperunison_public_api_sdk.api_client import ApiClient
 
@@ -91,9 +91,9 @@ class UnisonSDKApi:
             api_key: str,
             code: str
     ):
-        return self.structure_api_instance.get_biobank_structure_mapping_status(
+        return self.structure_api_instance.get_app_publicapi_structure_getbiobankstructuremappingstatus(
             api_key=api_key,
-            code=code
+            biobank_code=code
         )
 
     def export_cdm(
@@ -107,7 +107,7 @@ class UnisonSDKApi:
             connection_string: str = '',
             run_dqd: str = ''
     ):
-        return self.structure_api_instance.export_cdm(
+        return self.structure_api_instance.export_database(
             api_key = api_key,
             biobank_code = code,
             cdm = cdm,
@@ -123,7 +123,7 @@ class UnisonSDKApi:
             api_key: str,
             job_id: str
     ):
-        return self.structure_api_instance.post_app_publicapi_structure_getexportjobstatus(
+        return self.structure_api_instance.get_job(
             api_key=api_key,
             job_id=job_id
         )

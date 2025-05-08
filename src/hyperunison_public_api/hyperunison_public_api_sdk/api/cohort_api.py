@@ -38,7 +38,7 @@ class CohortApi(object):
         self.api_client = api_client
         self.public_cohort_execute_query_endpoint = _Endpoint(
             settings={
-                'response_type': (ResponseToUCDMResultWithSql,),
+                'response_type': ([ResponseToUCDMResultWithSql],),
                 'auth': [],
                 'endpoint_path': '/api/public/cohort/biobank/execute-query',
                 'operation_id': 'public_cohort_execute_query',
@@ -142,7 +142,7 @@ class CohortApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ResponseToUCDMResultWithSql
+            [ResponseToUCDMResultWithSql]
                 If the method is called asynchronously, returns the request
                 thread.
         """
