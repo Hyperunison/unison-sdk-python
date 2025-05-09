@@ -5,6 +5,7 @@ from .hyperunison_public_api_sdk.api.pipeline_api import PipelineApi
 from .hyperunison_public_api_sdk.api.suggester_api import SuggesterApi
 from .hyperunison_public_api_sdk.api.structure_api import StructureApi
 from .hyperunison_public_api_sdk.model.public_cohort_execute_query_request import PublicCohortExecuteQueryRequest
+from .hyperunison_public_api_sdk.model.bulk_update_structure_request import BulkUpdateStructureRequest
 from .hyperunison_public_api_sdk.model.run_custom_workflow_request import RunCustomWorkflowRequest
 
 from .hyperunison_public_api_sdk.api_client import ApiClient
@@ -75,7 +76,7 @@ class UnisonSDKApi:
                 cohort=cohort
             )
         )
-    
+
     def save_structure(
             self,
             api_key: str,
@@ -83,7 +84,9 @@ class UnisonSDKApi:
     ):
         return self.structure_api_instance.save_structure(
             api_key=api_key,
-            yaml=yaml
+            bulk_update_structure_request=BulkUpdateStructureRequest(
+                yaml=yaml
+            )
         )
 
     def get_biobank_structure_mapping_status(

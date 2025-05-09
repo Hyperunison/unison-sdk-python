@@ -111,7 +111,7 @@ with hyperunison_public_api_sdk.ApiClient() as api_client:
     limit = "" # str | Optional. Max count items in the export files, for each file. Use it for debug only (optional) if omitted the server will use the default value of ""
     cdm_tables = [] # [bool, date, datetime, dict, float, int, list, str, none_type] | Optional. An array of cdm tables to limit export. For example: ['person', 'procedure'] (optional) if omitted the server will use the default value of []
     format = "csv" # str | Format of the export. Available values: csv, postgresql, sqlite (optional) if omitted the server will use the default value of "csv"
-    connection_string = "sqlite://qXzyC@Swg0_bs9ZayIMrKdgNvb6gvxmPb9GcsM61ate1RA89q3w1l4eH4XxEz.5awxoFZxHzs6ED.kjUSnTINkY/snYv3_8jSQL653YHp9_ohS9pb0ziLqFde9fYgAwdpfxa30zS?7-'(u+-7Tfp&\`F+7-?{%@=iEPLVY*a@A[b_6cfy~~0GcD_@b4Y=U?otJ(e#=I@b(lK%|5-Ido" # str | For PostgreSQL formats only. Format: dbType://username:password@hostname:port/dbName (optional)
+    connection_string = "connectionString_example" # str | For PostgreSQL formats only. Format: dbType://username:password@hostname:port/dbName (optional)
     run_dqd = "" # str | Check name to run. Default if none. Possible values: OMOP-5.4 (optional) if omitted the server will use the default value of ""
 
     # example passing only required values which don't have defaults set

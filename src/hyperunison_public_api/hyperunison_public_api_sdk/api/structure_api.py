@@ -120,11 +120,7 @@ class StructureApi(object):
                 ],
                 'validation': [
                     'biobank_code',
-                    'cdm',
-                    'limit',
-                    'cdm_tables',
                     'format',
-                    'connection_string',
                     'run_dqd',
                 ]
             },
@@ -136,34 +132,10 @@ class StructureApi(object):
                             'pattern': r'\w+',  # noqa: E501
                         },
                     },
-                    ('cdm',): {
-
-                        'regex': {
-                            'pattern': r'^(\w+)\/(\w+):(.*)$',  # noqa: E501
-                        },
-                    },
-                    ('limit',): {
-
-                        'regex': {
-                            'pattern': r'^\d+$',  # noqa: E501
-                        },
-                    },
-                    ('cdm_tables',): {
-
-                        'regex': {
-                            'pattern': r'^\w+$',  # noqa: E501
-                        },
-                    },
                     ('format',): {
 
                         'regex': {
                             'pattern': r'^(csv|postgresql|sqlite)$',  # noqa: E501
-                        },
-                    },
-                    ('connection_string',): {
-
-                        'regex': {
-                            'pattern': r'^(postgres(ql)?|sqlite):\/\/\w+(:[^@]+)?@?[\w.-]+(:\d+)?\/\w+(\?.*)?$',  # noqa: E501
                         },
                     },
                     ('run_dqd',): {

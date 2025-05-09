@@ -282,11 +282,10 @@
                         "in": "query",
                         "description": "CDM ID. Format: vendor/name:version. By Default: demo/OMOP:5.4 (OMOP 5.4)",
                         "required": false,
-                        "allowEmptyValue": false,
+                        "allowEmptyValue": true,
                         "schema": {
                             "type": "string",
-                            "default": "demo/OMOP:5.4",
-                            "pattern": "^(\\w+)/(\\w+):(.*)$"
+                            "default": "demo/OMOP:5.4"
                         }
                     },
                     {
@@ -294,11 +293,10 @@
                         "in": "query",
                         "description": "Optional. Max count items in the export files, for each file. Use it for debug only",
                         "required": false,
-                        "allowEmptyValue": false,
+                        "allowEmptyValue": true,
                         "schema": {
                             "type": "string",
-                            "default": "",
-                            "pattern": "^\\d+$"
+                            "default": ""
                         }
                     },
                     {
@@ -306,13 +304,12 @@
                         "in": "query",
                         "description": "Optional. An array of cdm tables to limit export. For example: ['person', 'procedure']",
                         "required": false,
-                        "allowEmptyValue": false,
+                        "allowEmptyValue": true,
                         "explode": true,
                         "schema": {
                             "type": "array",
                             "items": {},
-                            "default": [],
-                            "pattern": "^\\w+$"
+                            "default": []
                         }
                     },
                     {
@@ -335,8 +332,7 @@
                         "allowEmptyValue": true,
                         "schema": {
                             "type": "string",
-                            "default": null,
-                            "pattern": "^(postgres(ql)?|sqlite)://\\w+(:[^@]+)?@?[\\w.-]+(:\\d+)?/\\w+(\\?.*)?$"
+                            "default": null
                         }
                     },
                     {
