@@ -41,8 +41,8 @@ class TestStructureApi(unittest.TestCase):
         """
         pass
 
-    def test_post_app_publicapi_structure_getexportjobstatus(self):
-        """Test case for post_app_publicapi_structure_getexportjobstatus
+    def test_get_job(self):
+        """Test case for get_job
 
         """
         pass

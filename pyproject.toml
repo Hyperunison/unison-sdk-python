@@ -1,6 +1,6 @@
 [project]
 name = "hyperunison_public_api_sdk"
-version = "2.3.3"
+version = "2.3.4"
 description = "Python SDK to use public API of Unison"
 readme = "README.md"
 requires-python = ">=3.8"

@@ -92,30 +92,24 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "required": [
-                                    "parameters",
-                                    "project",
-                                    "biobanks",
-                                    "cohort"
-                                ],
                                 "properties": {
-                                    "parameters": {
-                                        "type": "array",
-                                        "items": {},
-                                        "default": []
-                                    },
                                     "project": {
-                                        "type": "string",
-                                        "default": ""
-                                    },
-                                    "biobanks": {
-                                        "type": "array",
-                                        "items": {},
-                                        "default": []
+                                        "description": "Where to place result files",
+                                        "type": "string"
                                     },
                                     "cohort": {
-                                        "type": "string",
-                                        "default": ""
+                                        "description": "Cohort defined in yaml format",
+                                        "type": "string"
+                                    },
+                                    "biobanks": {
+                                        "description": "Codes of biobanks to run workflow",
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "type": "object"
                                     }
                                 },
                                 "type": "object"

@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: hyperunison_public_api_sdk
-Version: 2.3.3
+Version: 2.3.4
 Summary: Python SDK to use public API of Unison
 Author-email: Konstantin Naumov <konstantin@hyperunison.com>
 License-Expression: MIT

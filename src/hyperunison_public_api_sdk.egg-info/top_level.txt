@@ -1,1 +1,2 @@
+auto
 hyperunison_public_api

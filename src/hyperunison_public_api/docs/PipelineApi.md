@@ -103,10 +103,12 @@ with hyperunison_public_api_sdk.ApiClient() as api_client:
     api_key = "apiKey_example" # str | Authorization by Api key
     pipeline_version_id = "4" # str | 
     run_custom_workflow_request = RunCustomWorkflowRequest(
-        parameters=[],
-        project="",
-        biobanks=[],
-        cohort="",
+        project="project_example",
+        cohort="cohort_example",
+        biobanks=[
+            "biobanks_example",
+        ],
+        parameters={},
     ) # RunCustomWorkflowRequest |  (optional)
 
     # example passing only required values which don't have defaults set

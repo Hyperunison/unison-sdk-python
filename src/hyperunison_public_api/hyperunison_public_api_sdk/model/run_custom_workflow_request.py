@@ -81,10 +81,10 @@ class RunCustomWorkflowRequest(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'parameters': ([bool, date, datetime, dict, float, int, list, str, none_type],),  # noqa: E501
             'project': (str,),  # noqa: E501
-            'biobanks': ([bool, date, datetime, dict, float, int, list, str, none_type],),  # noqa: E501
             'cohort': (str,),  # noqa: E501
+            'biobanks': ([str],),  # noqa: E501
+            'parameters': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
         }
 
     @cached_property
@@ -93,10 +93,10 @@ class RunCustomWorkflowRequest(ModelNormal):
 
 
     attribute_map = {
-        'parameters': 'parameters',  # noqa: E501
         'project': 'project',  # noqa: E501
-        'biobanks': 'biobanks',  # noqa: E501
         'cohort': 'cohort',  # noqa: E501
+        'biobanks': 'biobanks',  # noqa: E501
+        'parameters': 'parameters',  # noqa: E501
     }
 
     read_only_vars = {
@@ -109,13 +109,7 @@ class RunCustomWorkflowRequest(ModelNormal):
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
         """RunCustomWorkflowRequest - a model defined in OpenAPI
 
-        Args:
-
         Keyword Args:
-            parameters ([bool, date, datetime, dict, float, int, list, str, none_type]): defaults to []  # noqa: E501
-            project (str): defaults to ""  # noqa: E501
-            biobanks ([bool, date, datetime, dict, float, int, list, str, none_type]): defaults to []  # noqa: E501
-            cohort (str): defaults to ""  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -146,12 +140,12 @@ class RunCustomWorkflowRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            project (str): Where to place result files. [optional]  # noqa: E501
+            cohort (str): Cohort defined in yaml format. [optional]  # noqa: E501
+            biobanks ([str]): Codes of biobanks to run workflow. [optional]  # noqa: E501
+            parameters ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
         """
 
-        parameters = kwargs.get('parameters', [])
-        project = kwargs.get('project', "")
-        biobanks = kwargs.get('biobanks', [])
-        cohort = kwargs.get('cohort', "")
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
@@ -181,10 +175,6 @@ class RunCustomWorkflowRequest(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.parameters = parameters
-        self.project = project
-        self.biobanks = biobanks
-        self.cohort = cohort
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -208,13 +198,7 @@ class RunCustomWorkflowRequest(ModelNormal):
     def __init__(self, *args, **kwargs):  # noqa: E501
         """RunCustomWorkflowRequest - a model defined in OpenAPI
 
-        Args:
-
         Keyword Args:
-            parameters ([bool, date, datetime, dict, float, int, list, str, none_type]): defaults to []  # noqa: E501
-            project (str): defaults to ""  # noqa: E501
-            biobanks ([bool, date, datetime, dict, float, int, list, str, none_type]): defaults to []  # noqa: E501
-            cohort (str): defaults to ""  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -245,12 +229,12 @@ class RunCustomWorkflowRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            project (str): Where to place result files. [optional]  # noqa: E501
+            cohort (str): Cohort defined in yaml format. [optional]  # noqa: E501
+            biobanks ([str]): Codes of biobanks to run workflow. [optional]  # noqa: E501
+            parameters ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
         """
 
-        parameters = kwargs.get('parameters', [])
-        project = kwargs.get('project', "")
-        biobanks = kwargs.get('biobanks', [])
-        cohort = kwargs.get('cohort', "")
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
         _path_to_item = kwargs.pop('_path_to_item', ())
@@ -278,10 +262,6 @@ class RunCustomWorkflowRequest(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.parameters = parameters
-        self.project = project
-        self.biobanks = biobanks
-        self.cohort = cohort
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
